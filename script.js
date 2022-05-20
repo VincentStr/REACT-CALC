@@ -7,6 +7,7 @@ class App extends React.Component {
             setDecimal: true,
             setZero: false,
             newNum: false,
+            
         }
         this.handleNums = this.handleNums.bind(this);
         this.hanldeOper = this.hanldeOper.bind(this);
@@ -131,8 +132,15 @@ class App extends React.Component {
     }
 
     handleOut() {
-        const out = this.state.currentVal.join("")
-        this.setState({ output: out })
+        console.log(this.state.currentVal.length)
+        if(this.state.currentVal.length < 36){
+            const out = this.state.currentVal.join("")
+            this.setState({ output: out })
+        } else{
+            this.setState({output: "Too long to display"})
+        }
+        
+     
     }
     handleDecimal(e) {
 
@@ -184,8 +192,10 @@ class App extends React.Component {
         )
     }
 }
+const operStyle = {backgroundColor :"orange"}
 
 class Buttons extends React.Component {
+   
     render() {
         return (
             <div>
@@ -193,11 +203,11 @@ class Buttons extends React.Component {
 
                     {/* 1st Row*/}
 
-                    <button className="button" id="clear" onClick={this.props.intial} >AC</button>
+                    <button  className="button" id="clear" onClick={this.props.intial} >AC</button>
 
-                    <button className="button" id="delete" onClick={this.props.clear}>DEL</button>
+                    <button  className="button" id="delete" onClick={this.props.clear}>DEL</button>
 
-                    <button className="button" id="multiply" value=" * " onClick={this.props.operators}>*</button>
+                    <button style = {operStyle} className="button" id="multiply" value=" * " onClick={this.props.operators}>*</button>
 
                     {/* 2nd Row*/}
 
@@ -205,9 +215,9 @@ class Buttons extends React.Component {
 
                     <button className="button" id="eight" value="8" onClick={this.props.numbers}>8</button>
 
-                    <button className="button" id="nine" value="9" onClick={this.props.numbers}>9</button>
+                    <button  className="button" id="nine" value="9" onClick={this.props.numbers}>9</button>
 
-                    <button className="button" id="divide" value=" / " onClick={this.props.operators}>/</button>
+                    <button style = {operStyle} className="button" id="divide" value=" / " onClick={this.props.operators}>/</button>
 
                     {/* 3rd Row*/}
 
@@ -217,7 +227,7 @@ class Buttons extends React.Component {
 
                     <button className="button" id="six" value="6" onClick={this.props.numbers}>6</button>
 
-                    <button className="button" id="subtract" value=" - " onClick={this.props.operators}>-</button>
+                    <button style = {operStyle} className="button" id="subtract" value=" - " onClick={this.props.operators}>-</button>
 
                     {/* 4th Row*/}
 
@@ -227,7 +237,7 @@ class Buttons extends React.Component {
 
                     <button className="button" id="three" value="3" onClick={this.props.numbers}>3</button>
 
-                    <button className="button" id="add" value=" + " onClick={this.props.operators}>+</button>
+                    <button style = {operStyle} className="button" id="add" value=" + " onClick={this.props.operators}>+</button>
 
                     {/* 5th Row*/}
 
@@ -235,7 +245,7 @@ class Buttons extends React.Component {
 
                     <button className="button" id="decimal" value="." onClick={this.props.decimal} >.</button>
 
-                    <button className="button" id="equals" onClick={this.props.eval} >=</button>
+                    <button style = {operStyle}className="button" id="equals" onClick={this.props.eval} >=</button>
 
 
                 </div>

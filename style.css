@@ -8,7 +8,7 @@ body{
   height: auto;
   border-style: solid;
   border-color: rgb(189, 189, 189);
-  background-color: rgb(125, 125, 125);
+  background-color: rgb(46, 46, 46);
 
   padding: 15px;
   padding-right: 20px;
@@ -32,8 +32,9 @@ body{
   height: 100%;
   font-size: 2rem;
   margin: 2px;
-  border-color: rgba(189, 189, 200, 0.335);
+  border: rgba(0, 0, 0, 0);
   font-family: monospace;
+
   
 }
 #display{
@@ -47,7 +48,7 @@ body{
   border-radius: 10px;
   margin-bottom: 10px;
   border-color: rgba(128, 129, 130, 0.124);
-  background-color: rgba(215, 248, 248, 0.656);
+  background-color: rgba(215, 248, 248, 0.822);
 
 }
 #clear{
