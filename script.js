@@ -21,8 +21,6 @@ class App extends React.Component {
     handleNums(e) {
         const value = e.target.value
        
-        console.log((this.state.newNum && this.state.currentVal[this.state.currentVal.length-1] != 0))
-        console.log(this.state.setZero)
         if (value == "0") {
             if (this.state.setZero || !this.state.currentVal.length || (this.state.newNum && this.state.currentVal[this.state.currentVal.length-1] != 0) ) {
                
@@ -30,7 +28,7 @@ class App extends React.Component {
             }
         } else {
             if (this.state.currentVal[0] === "0") {
-                console.log(this.state.currentVal[0])
+               
                 this.state.currentVal.shift()
             }
 
@@ -59,7 +57,7 @@ class App extends React.Component {
         if (prevVal) {
 
             if (value == " - ") {
-                console.log(prevVal + " if _ preVal")
+               
                 if (prevVal >= 0) {
                     this.state.currentVal.push(value)
                 }
@@ -84,8 +82,7 @@ class App extends React.Component {
 
                     }
                     else {
-                        console.log(value)
-                 
+                     
                         this.handleOut()
                     }
                 }
@@ -109,7 +106,7 @@ class App extends React.Component {
     handleClear = (event) => {
         const length = this.state.currentVal.length
         if (length > 0) {
-            console.log(this.state.currentVal.includes("."))
+         
 
             this.state.currentVal.pop()
             this.state.currentVal.includes(".") ? null : this.setState({ setDecimal: true })
@@ -132,8 +129,8 @@ class App extends React.Component {
     }
 
     handleOut() {
-        console.log(this.state.currentVal.length)
-        if(this.state.currentVal.length < 36){
+
+        if(this.state.currentVal.length < 26){
             const out = this.state.currentVal.join("")
             this.setState({ output: out })
         } else{
@@ -148,7 +145,7 @@ class App extends React.Component {
         const prevVal = this.state.currentVal[this.state.currentVal.length - 1]
 
         if (this.state.setDecimal) {
-            console.log(parseInt(prevVal))
+          
             if (isNaN(parseInt(prevVal)) || this.state.currentVal.length == 0) {
                 this.state.currentVal.push(0)
             }
